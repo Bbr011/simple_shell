@@ -12,6 +12,7 @@ int main(int ac, char **argv)
 	int sts = 0;
 	char *line = NULL;
 	char **cmd = NULL;
+	int indx = 0;
 	(void) ac;
 
 	while (1)
@@ -23,9 +24,10 @@ int main(int ac, char **argv)
 				write(STDOUT_FILENO, "\n", 1);
 			return (sts);
 		}
+		indx++;
 		cmd = tknzr(line);/*tokenizer function*/
 		if (!cmd)
 			continue;
-		sts = _exe(cmd, argv);/*executer function*/
+		sts = _exe(cmd, argv, indx);/*executer function*/
 	}
 }

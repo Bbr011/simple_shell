@@ -7,25 +7,33 @@
  * Return: sts
  */
 
-int _exe(char **cmd, char **argv)
+int _exe(char **cmd, char **argv, int indx)
 {
 	int sts;
 	pid_t child;
+	char *fcmd;
 
+	fcmd = _handlepath(cmd[0]);
+	if (!fcmd)
+	{
+		printerror(argv[0], cmd[0], indx);
+		freestr(cmd);
+		return (127);
+	}
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(cmd[0], cmd, environ) == -1)
+		if (execve(fcmd, cmd, environ) == -1)
 		{
-			perror(argv[0]);
+			free(fcmd), fcmd = NULL;
 			freestr(cmd);
-			exit(0);
 		}
 	}
 	else
 	{
 		waitpid(child, &sts, 0);
 		freestr(cmd);
+		free(fcmd), fcmd = NULL;
 	}
 	return (WEXITSTATUS(sts));
 }

@@ -13,6 +13,12 @@
 
 extern char **environ;
 
+/*getenviron*/
+char *_getenv(char *var);
+
+/*getpath*/
+char *_handlepath(char *cmd);
+
 /*lread*/
 char *lread(void);
 
@@ -27,9 +33,12 @@ char *_strdup(const char *str);
 char **tknzr(char *line);
 
 /*exe*/
-int _exe(char **cmd, char **argv);
+int _exe(char **cmd, char **argv, int indx);
 
 /*fun*/
 void freestr(char **ar);
+void printerror(char *n, char *cmd, int index);
+char *_ita(int n);
+void strrev(char *str, int ln);
 
 #endif
