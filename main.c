@@ -28,6 +28,9 @@ int main(int ac, char **argv)
 		cmd = tknzr(line);/*tokenizer function*/
 		if (!cmd)
 			continue;
-		sts = _exe(cmd, argv, indx);/*executer function*/
+		if (builtincheck(cmd[0]))
+			handlebuiltin(cmd, argv, &sts, indx);
+		else
+			sts = _exe(cmd, argv, indx);/*executer function*/
 	}
 }

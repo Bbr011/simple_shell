@@ -41,4 +41,9 @@ void printerror(char *n, char *cmd, int index);
 char *_ita(int n);
 void strrev(char *str, int ln);
 
+/*builtincheck*/
+int builtincheck(char *cmd);
+void exithsh(char **cmd, int *sts);
+void prtenviron(char **cmd, int *sts);
+void handlebuiltin(char **cmd, char **argv, int *sts, int index);
 #endif
