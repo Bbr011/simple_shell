@@ -1,6 +1,7 @@
 #include "shell.h"
 
-/* strcmp - compaire two strings
+/*
+ * strcmp - compaire two strings
  * @s1: first string
  * @s2: second string
  * Return: c
@@ -22,8 +23,9 @@ int _strcmp(char *s1, char *s2)
 	return (c);
 }
 
-/* strlen - calculate the length of a string
- * @s: string 
+/*
+ * strlen - calculate the length of a string
+ * @s: string
  * Return: length
  */
 
@@ -36,7 +38,8 @@ int _strlen(char *s)
 	return (len);
 }
 
-/* strcmp - duplicate a string
+/*
+ * strcmp - duplicate a string
  * @str: string
  * Return: p
  */
@@ -62,7 +65,8 @@ char *_strdup(const char *str)
 	return (p);
 }
 
-/* strcat - concatenates two strings
+/*
+ * strcat - concatenates two strings
  * @dest: first string
  * @src: second string
  * Return: dest
@@ -84,7 +88,8 @@ char *_strcat(char *dest, char *src)
 	return (dest);
 }
 
-/* strcmp - copies a string
+/*
+ * strcmp - copies a string
  * @s1: first string
  * @s2: second string
  * Return: dest

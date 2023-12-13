@@ -20,6 +20,12 @@ void freestr(char **ar)
 	free(ar), ar = NULL;
 }
 
+/*
+ * _ita - intiger to char
+ * @n: inter to to turn
+ * Return: buffer
+ */
+
 char *_ita(int n)
 {
 	int a = 0;
@@ -39,6 +45,13 @@ char *_ita(int n)
 	strrev(buffer, a);
 	return (_strdup(buffer));
 }
+/*
+ * strrev - revers a string
+ * @str: string
+ * @ln: length
+ * Return: NULL
+ */
+
 void strrev(char *str, int ln)
 {
 	int start = 0;
@@ -54,6 +67,15 @@ void strrev(char *str, int ln)
 		end--;
 	}
 }
+
+/*
+ * printerror - print error
+ * @n: number
+ * @cmd: command
+ * @index: index
+ * Return: NULL
+ */
+
 void printerror(char *n, char *cmd, int index)
 {
 	char *indx;

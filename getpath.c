@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/*
+ * _handlepath - function that handles the path
+ * @cmd: command
+ * Return: NULL
+ */
+
 char *_handlepath(char *cmd)
 {
 	struct stat yh;
@@ -25,7 +31,7 @@ char *_handlepath(char *cmd)
 	while (dir)
 	{
 		fcmd = malloc(_strlen(cmd) + _strlen(dir) + 2);
-		if(fcmd)
+		if (fcmd)
 		{
 			_strcpy(fcmd, dir);
 			_strcat(fcmd, "/");
@@ -33,12 +39,12 @@ char *_handlepath(char *cmd)
 			if (stat(fcmd, &yh) == 0)
 			{
 				free(pthe);
-				return(fcmd);
+				return (fcmd);
 			}
 			free(fcmd), fcmd = NULL;
 			dir = strtok(NULL, ":");
 		}
 	}
 	free(pthe);
-	return(NULL);
+	return (NULL);
 }

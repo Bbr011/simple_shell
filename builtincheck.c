@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/*
+ * builtincheck - check builtin
+ * @cmd: command
+ * Return: 0
+ */
+
 int builtincheck(char *cmd)
 {
 	int a;
@@ -13,11 +19,25 @@ int builtincheck(char *cmd)
 	return (0);
 }
 
+/*
+ * exithsh - exit the shell program
+ * @cmd: command
+ * @sts: status
+ * Return: NULL
+ */
+
 void exithsh(char **cmd, int *sts)
 {
 	freestr(cmd);
 	exit(*sts);
 }
+
+/*
+ * prtenviron - function that prints the environment
+ * @cmd: command
+ * @sts: status
+ * Return: NULL
+ */
 
 void prtenviron(char **cmd, int *sts)
 {
@@ -26,12 +46,20 @@ void prtenviron(char **cmd, int *sts)
 	for (i = 0; environ[i]; i++)
 	{
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
-		write(STDOUT_FILENO,"\n", 1);
+		write(STDOUT_FILENO, "\n", 1);
 	}
 	freestr(cmd);
 	(*sts = 0);
 }
 
+/*
+ * handlebuiltin - handle builtin
+ * @cmd: command
+ * @argv: arguments
+ * @sts: status
+ * @index: index
+ * Return: NULL
+ */
 void handlebuiltin(char **cmd, char **argv, int *sts, int index)
 {
 	(void) argv;

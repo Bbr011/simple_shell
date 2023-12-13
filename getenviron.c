@@ -17,7 +17,7 @@ char *_getenv(char *var)
 	{
 		tempo = _strdup(environ[a]);
 		m = strtok(tempo, "=");
-		if (_strcmp(m , var) == 0)
+		if (_strcmp(m, var) == 0)
 		{
 			value = strtok(NULL, "\n");
 			valueb = _strdup(value);
